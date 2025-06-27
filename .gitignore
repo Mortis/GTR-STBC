@@ -1,0 +1,25 @@
+# MATLAB/Simulink
+*.asv
+*.autosave
+*.mex*
+*.mlappinstall
+*.mlpkginstall
+*.mltbx
+*.p
+*.slx.original
+*.sldd.original
+*.slxc.original
+*.slxc.cache
+*.slx.bak
+*.sldd.bak
+*.slxc.bak
+
+# Simulink Coder
+slprj/
+_sharedutils/
+
+# MATLAB Project
+resources/
+
+# MATLAB Drive
+.matlab/
