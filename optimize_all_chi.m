@@ -4,7 +4,9 @@ function chi = optimize_all_chi(rho, chi, eta, sigma_w2, K, T, N)
             c0 = chi(:,k,t);
             obj = @(c) -compute_total_rate_single(rho(:,k,t), c, eta(:,:,k,t), sigma_w2);
             c = fmincon(obj, c0, [],[],[],[], zeros(N,1), ones(N,1), @(c) deal([],sum(c)-1), ...
-                        optimoptions('fmincon','Display','off'));
+                        optimoptions('fmincon', ...
+                        'Algorithm','sqp', ...
+                        'Display','off'));
             chi(:,k,t) = c;
         end
     end

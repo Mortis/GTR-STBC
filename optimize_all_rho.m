@@ -4,7 +4,7 @@ function rho = optimize_all_rho(rho, chi, eta, sigma_w2, K, T, N)
             r0 = rho(:,k,t);
             obj = @(r) -compute_total_rate_single(r, chi(:,k,t), eta(:,:,k,t), sigma_w2);
             r = fmincon(obj, r0, [],[],[],[], zeros(N,1), ones(N,1), @(r) deal([],sum(r)-1), ...
-                        optimoptions('fmincon','Display','off'));
+                        optimoptions('fmincon','Algorithm','sqp','Display','off'));
             rho(:,k,t) = r;
         end
     end
